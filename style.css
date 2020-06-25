@@ -1,0 +1,43 @@
+
+.bg{
+    background-color:rgb(15, 15, 17);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color:rgb(187, 59, 133);
+}
+.panelbody{
+    margin-top: 50px;
+    margin-left: 30%;
+    padding: 15px;
+    border-radius: 15px ;
+    height: 550px !important;
+    width: 550px !important;
+    box-shadow: 0 0 30px rgb(104, 107, 103) !important;
+}
+.rowPad{
+    padding-top: 20px;
+}
+.heading{
+    color: #ffffff ;
+}
+.inputCss{
+    font-size: 12pt !important;
+    text-align: right !important;
+}
+.resultCss{
+    font-size: 18pt !important;
+    text-align: right !important;
+    font-weight: bold !important;
+    /* color: #0000ff !important; */ 
+}
+.btn-secondary{
+    margin: 5px!important;
+    height: 50px !important;
+    width:50px !important;
+    text-align: center !important;
+}
+.btn-info{
+    margin: 5px !important;
+    height: 50px !important;
+    width:100px !important;
+    text-align: center !important;
+}
