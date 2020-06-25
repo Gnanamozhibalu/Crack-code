@@ -92,28 +92,6 @@ b5.setAttribute("onclick","inputValidation()");
 b5.innerHTML+="Validate";
 document.getElementById("rowp").appendChild(b5)
 
-
-
-/* //b4
-var b4=document.createElement("button");
-b4.setAttribute("class","btn btn-secondary");
-b4.setAttribute("onclick","getData('+')");
-b4.innerHTML="+";
-document.getElementById("rowp").appendChild(b4) */
-//b5
-/* var b5=document.createElement("button");
-b5.setAttribute("class","btn btn-secondary");
-b5.setAttribute("onclick","getData('(')");
-b5.innerHTML="&nbsp(";
-document.getElementById("rowp").appendChild(b5) */
-
-/* <div class="rowPad">
-            <button class="btn btn-primary" onclick="getData('4')">4</button>
-            <button class="btn btn-primary" onclick="getData('5')">5</button>
-            <button class="btn btn-primary" onclick="getData('6')">6</button>
-            <button class="btn btn-primary" onclick="getData('-')">-</button>
-            <button class="btn btn-primary" onclick="getData(')')">)</button>
-</div> */
 //row2
 var row2=document.createElement("div")
 row2.setAttribute("class","rowPad");
@@ -171,29 +149,7 @@ var b2=document.createElement("button");
 b2.setAttribute("class","btn btn-info");
 b2.setAttribute("onclick","getclear()");
 b2.innerHTML="Back";
-document.getElementById("row2").appendChild(b2)
-
-/* //b9
-var b4=document.createElement("button");
-b4.setAttribute("class","btn btn-secondary");
-b4.setAttribute("onclick","getData('-')");
-b4.innerHTML="&nbsp-";
-document.getElementById("row2").appendChild(b4)
-//b10
-var b5=document.createElement("button");
-b5.setAttribute("class","btn btn-secondary");
-b5.setAttribute("onclick","getData(')')");
-b5.innerHTML="&nbsp)";
-document.getElementById("row2").appendChild(b5) */
-
-
-/* <div class="rowPad">
-<button class="btn btn-primary" onclick="getData('7')">7</button>
-<button class="btn btn-primary" onclick="getData('8')">8</button>
-<button class="btn btn-primary" onclick="getData('9')">9</button>
-<button class="btn btn-primary" onclick="getData('*')">*</button>
-<button class="btn btn-primary" onclick="getData('%')">%</button>
-</div> */
+document.getElementById("row2").appendChild(b2);
 
 //row3
 var row3=document.createElement("div")
@@ -254,27 +210,7 @@ b11.setAttribute("onclick","clearAll()");
 b11.innerHTML="Reset";
 document.getElementById("row3").appendChild(b11);
 
-
-/* //b9
-var b4=document.createElement("button");
-b4.setAttribute("class","btn btn-secondary");
-b4.setAttribute("onclick","getData('*')");
-b4.innerHTML="*";
-document.getElementById("row3").appendChild(b4)
-//b10
-var b5=document.createElement("button");
-b5.setAttribute("class","btn btn-secondary");
-b5.setAttribute("onclick","getData('%')");
-b5.innerHTML="%";
-document.getElementById("row3").appendChild(b5)
- */
 //row4
-{/* <div class="rowPad">
-            <button class="btn btn-primary" onclick="getData('0')">0</button>
-            <button class="btn btn-primary" onclick="getData('/')">/</button>
-            <button class="btn btn-primary" onclick="getData('**')">^</button>
-</div> */}
-
 var row4=document.createElement("div")
 row4.setAttribute("class","rowPad");
 row4.setAttribute("id","row4")
@@ -319,39 +255,12 @@ var b11=document.createElement("button");
 b11.setAttribute("class","btn btn-info text-wrap");
 b11.setAttribute("id","myBtn");
 b11.setAttribute("onclick","getNextRandom()");
-b11.innerHTML="Play";
+b11.innerHTML="PlayAgain";
 document.getElementById("row4").appendChild(b11);
 
-/* //b7
-var b2=document.createElement("button");
-b2.setAttribute("class","btn btn-secondary");
-b2.setAttribute("onclick","getData('/')");
-b2.innerHTML="/";
-document.getElementById("row4").appendChild(b2)
-//b8
-var b3=document.createElement("button");
-b3.setAttribute("class","btn btn-secondary");
-b3.setAttribute("onclick","getData('**')");
-b3.innerHTML="^";
-document.getElementById("row4").appendChild(b3) */
 
-/* //b4
-var b4=document.createElement("button");
-b4.setAttribute("class","btn btn-secondary");
-b4.setAttribute("onclick","getData('.')");
-b4.innerHTML=".";
-document.getElementById("row4").appendChild(b4)
-//b5
-var b5=document.createElement("button");
-b5.setAttribute("class","btn btn-secondary");
-b5.setAttribute("onclick","inputValidation()");
-b5.innerHTML+="=";
-document.getElementById("row4").appendChild(b5) */
 
-{/* <div class="rowPad">
-<button tyepe="submit" class="btn btn-info" onclick="inputValidation()">result</button>
-<button class="btn btn-info" onclick="clearAll()">clear all</button>
-</div> */}
+
 //row5
 
 var row5=document.createElement("div")
@@ -422,19 +331,22 @@ function clearAll() {
     exp =[];
     document.getElementById("inputData").value = "";
     document.getElementById("result").value = "";
+    location.reload();
 }
 //back
 function getclear(){
    exp.pop();
    document.getElementById("inputData").value = exp.join("");
+   
 }
 
 //Random Number Generate
+random=[];
+for(var i = 0;i < 4; i++){
+    random.push(Math.floor(Math.random() * (9 - 0) + 0));
+  }
   function getNextRandom(){
-    random=[];
-    for(var i = 0;i < 4; i++){
-        random.push(Math.floor(Math.random() * (9 - 0) + 0));
-      }
+   alert("Game Started All the Best!")
      // document.getElementById("result").value=res.join(""); 
   }
 //check validity
@@ -696,12 +608,29 @@ function inputValidation() {
     document.getElementById("inputData").value = "";
 
     //document.getElementById("result").value = "";
-    if(JSON.stringify(random)==JSON.stringify(valid)){
-        alert("Congrats You won.your Point is `${point}`");
-        //break;
-    } 
+  
   }
 else{
-      alert("No more lives you lost")
+      alert("No more lives you lost");
+      location.reload();
     }
+    if(JSON.stringify(random)==JSON.stringify(valid)){
+      if(count==1){
+        alert("Congrats You won.your Point is 1000/1000");
+        location.reload();
+      }else if(count==2){
+        alert("Congrats You won.your Point is 800/1000");
+        location.reload();
+      }else if(count==3){
+        alert("Congrats You won.your Point is 600/1000");
+        location.reload();
+      }else if(count==4){
+        alert("Congrats You won.your Point is 400/1000");
+        location.reload();
+      }else if(count==5){
+        alert("Congrats You won.your Point is 200/1000");
+        location.reload();
+      }       
+    } 
+
 }
