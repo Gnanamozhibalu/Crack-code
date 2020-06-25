@@ -420,8 +420,37 @@ function inputValidation() {
         document.getElementById("result4").style.backgroundColor="red";
         document.getElementById("result4").value = invalid[i];
        }
+
+       //orange color
+         if(invalid[i]!="_"){
+         for(j=0;j<random.length;j++){
+          if(invalid[i]==random[j]){
+            if(i==0 && count==1){
+              document.getElementById("result1").style.backgroundColor="orange";
+             
+             }else if(i==1 && count==1){
+              
+              document.getElementById("result2").style.backgroundColor="orange";
+              
+             }else if(i==2 && count==1){
+              
+              document.getElementById("result3").style.backgroundColor="orange";
+              
+             }else if(i==3 && count==1){
+              
+              document.getElementById("result4").style.backgroundColor="orange";
+              
+             }
+          } 
+        }
+      }
+    
+
+
      }
    }
+
+
    //color code chance2
    for(i=0;i<random.length;i++){
     if(valid[i]!="_"){
@@ -466,6 +495,31 @@ function inputValidation() {
        document.getElementById("result8").value = invalid[i];
       }
     }
+
+  //orange color
+  if(invalid[i]!="_"){
+    for(j=0;j<random.length;j++){
+     if(invalid[i]==random[j]){
+       if(i==0 && count==2){
+         document.getElementById("result5").style.backgroundColor="orange";
+        
+        }else if(i==1 && count==2){
+         
+         document.getElementById("result6").style.backgroundColor="orange";
+         
+        }else if(i==2 && count==2){
+         
+         document.getElementById("result7").style.backgroundColor="orange";
+         
+        }else if(i==3 && count==2){
+         
+         document.getElementById("result8").style.backgroundColor="orange";
+         
+        }
+     } 
+   }
+ }
+
   }
 
   //color code chance3
@@ -512,6 +566,30 @@ function inputValidation() {
        document.getElementById("result12").value = invalid[i];
       }
     }
+ //orange color
+ if(invalid[i]!="_"){
+  for(j=0;j<random.length;j++){
+   if(invalid[i]==random[j]){
+     if(i==0 && count==3){
+       document.getElementById("result9").style.backgroundColor="orange";
+      
+      }else if(i==1 && count==3){
+       
+       document.getElementById("result10").style.backgroundColor="orange";
+       
+      }else if(i==2 && count==3){
+       
+       document.getElementById("result11").style.backgroundColor="orange";
+       
+      }else if(i==3 && count==3){
+       
+       document.getElementById("result12").style.backgroundColor="orange";
+       
+      }
+   } 
+ }
+}
+
   }
    //color code chance4
    for(i=0;i<random.length;i++){
@@ -557,6 +635,32 @@ function inputValidation() {
        document.getElementById("result16").value = invalid[i];
       }
     }
+
+
+    //orange color
+ if(invalid[i]!="_"){
+  for(j=0;j<random.length;j++){
+   if(invalid[i]==random[j]){
+     if(i==0 && count==4){
+       document.getElementById("result13").style.backgroundColor="orange";
+      
+      }else if(i==1 && count==4){
+       
+       document.getElementById("result14").style.backgroundColor="orange";
+       
+      }else if(i==2 && count==4){
+       
+       document.getElementById("result15").style.backgroundColor="orange";
+       
+      }else if(i==3 && count==4){
+       
+       document.getElementById("result16").style.backgroundColor="orange";
+       
+      }
+   } 
+ }
+}
+
   }
    //color code chance5
    for(i=0;i<random.length;i++){
@@ -602,18 +706,36 @@ function inputValidation() {
        document.getElementById("result20").value = invalid[i];
       }
     }
+    //orange color
+    if(invalid[i]!="_"){
+      for(j=0;j<random.length;j++){
+       if(invalid[i]==random[j]){
+         if(i==0 && count==5){
+           document.getElementById("result17").style.backgroundColor="orange";
+          
+          }else if(i==1 && count==5){
+           
+           document.getElementById("result18").style.backgroundColor="orange";
+           
+          }else if(i==2 && count==5){
+           
+           document.getElementById("result19").style.backgroundColor="orange";
+           
+          }else if(i==3 && count==5){
+           
+           document.getElementById("result20").style.backgroundColor="orange";
+           
+          }
+       } 
+     }
+    }
+
   }
     //reset input after check
     exp =[];
     document.getElementById("inputData").value = "";
 
     //document.getElementById("result").value = "";
-  
-  }
-else{
-      alert("No more lives you lost");
-      location.reload();
-    }
     if(JSON.stringify(random)==JSON.stringify(valid)){
       if(count==1){
         alert("Congrats You won.your Point is 1000/1000");
@@ -632,5 +754,11 @@ else{
         location.reload();
       }       
     } 
+    
+  }
+else{
+      alert("No more lives you lost");
+      location.reload();
+    }
 
 }
