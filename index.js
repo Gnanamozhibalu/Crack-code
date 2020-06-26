@@ -354,8 +354,8 @@ for(var i = 0;i < 4; i++){
 count=0
 function inputValidation() {
   if(exp.length!=0){
-  console.log(random);
-  console.log(exp);
+  //console.log(random);
+  //console.log(exp);
    valid=[];
    invalid=[];
    if(exp.length!=4){
@@ -382,8 +382,8 @@ function inputValidation() {
        valid[i]="_"
        invalid[i]=exp[i];
    }
-  console.log(valid)
-  console.log(invalid)
+  /* console.log(valid)
+  console.log(invalid) */
   //color code chance1
    for(i=0;i<random.length;i++){
      if(valid[i]!="_"){
