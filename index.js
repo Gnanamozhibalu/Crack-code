@@ -12,7 +12,7 @@ var h2=document.createElement("h2");
 h2.setAttribute("class","heading");
 icon.setAttribute("class","fa fa-gavel")
 icon.setAttribute("aria-hidden","true");
-h2.innerHTML="Crack code!"
+h2.innerHTML="Crack the code!Open the Safe"
 cal.appendChild(h2);
 h2.appendChild(icon);
 container.appendChild(cal);
@@ -29,7 +29,7 @@ var input2=document.createElement("input");
 input2.setAttribute("type","text");
 input2.setAttribute("id","result");
 input2.setAttribute("class","resultCss form-control");
-input2.setAttribute("placeholder","result here");
+input2.setAttribute("placeholder","HINT:RED=>NOTPRESENT,ORANGE=>MISPLACED,YELLOW=>RIGHT");
 input2.setAttribute("readonly","")
 container.appendChild(input2);
 
@@ -207,7 +207,7 @@ document.getElementById("row3").appendChild(b3)
 var b11=document.createElement("button");
 b11.setAttribute("class","btn btn-info");
 b11.setAttribute("onclick","clearAll()");
-b11.innerHTML="Reset";
+b11.innerHTML="Exit";
 document.getElementById("row3").appendChild(b11);
 
 //row4
@@ -255,7 +255,7 @@ var b11=document.createElement("button");
 b11.setAttribute("class","btn btn-info text-wrap");
 b11.setAttribute("id","myBtn");
 b11.setAttribute("onclick","getNextRandom()");
-b11.innerHTML="PlayAgain";
+b11.innerHTML="Start";
 document.getElementById("row4").appendChild(b11);
 
 
@@ -328,6 +328,7 @@ function getData(data) {
 }
 //reset
 function clearAll() {
+    confirm("Are your sure to exit the Game??")
     exp =[];
     document.getElementById("inputData").value = "";
     document.getElementById("result").value = "";
@@ -352,8 +353,9 @@ for(var i = 0;i < 4; i++){
 //check validity
 count=0
 function inputValidation() {
-   console.log(random);
-   console.log(exp);
+  if(exp.length!=0){
+  console.log(random);
+  console.log(exp);
    valid=[];
    invalid=[];
    if(exp.length!=4){
@@ -363,6 +365,11 @@ function inputValidation() {
     document.getElementById("result").value = "";
    }else{
      count++;
+     if(count>5){
+        alert("No more lives you lost play AGain");
+        location.reload();
+          console.log(count)
+     }
    }
 
   // comapring each element of array 
@@ -736,29 +743,41 @@ function inputValidation() {
     document.getElementById("inputData").value = "";
 
     //document.getElementById("result").value = "";
-    if(JSON.stringify(random)==JSON.stringify(valid)){
-      if(count==1){
-        alert("Congrats You won.your Point is 1000/1000");
-        location.reload();
-      }else if(count==2){
-        alert("Congrats You won.your Point is 800/1000");
-        location.reload();
-      }else if(count==3){
-        alert("Congrats You won.your Point is 600/1000");
-        location.reload();
-      }else if(count==4){
-        alert("Congrats You won.your Point is 400/1000");
-        location.reload();
-      }else if(count==5){
-        alert("Congrats You won.your Point is 200/1000");
-        location.reload();
-      }       
-    } 
-    
-  }
-else{
-      alert("No more lives you lost");
+  //score update
+  if(JSON.stringify(random)==JSON.stringify(valid)){
+    if(count==1){
+      alert("Congrats You won.your Point is 1000/1000");
+      location.reload();
+    }else if(count==2){
+      alert("Congrats You won.your Point is 800/1000");
+      location.reload();
+    }else if(count==3){
+      alert("Congrats You won.your Point is 600/1000");
+      location.reload();
+    }else if(count==4){
+      alert("Congrats You won.your Point is 400/1000");
+      location.reload();
+    }else if(count==5){
+      alert("Congrats You won.your Point is 200/1000");
       location.reload();
     }
-
+  }else{
+    if(count==1){
+      alert("chance 1 over");
+    }else if(count==2){
+      alert("chance 2 over");
+    }else if(count==3){
+      alert("chance 3 over");
+    }else if(count==4){
+      alert("last chance to try");
+    }else if(count>=5){
+      alert("you lost..Restart the Game");
+      location.reload();
+    }
+  }
+  }
+  }else{
+    alert("Please Enter number")
+  }
+  
 }
